@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "student",
+    'name': "Estudiantes",
     'description': """
         Aplicacion para la gestion de los estudiantes
     """,

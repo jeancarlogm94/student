@@ -1,7 +1,5 @@
 <odoo>
   <data>
-    <!-- explicit list view definition -->
-
     <record model="ir.ui.view" id="student_tree">
       <field name="name">student tree</field>
       <field name="model">student.student</field>
@@ -35,6 +33,7 @@
               <field name="sexo" />
               <field name="fecha_nacimiento" />
               <field name="hobby" />
+              <field name="direccion" />
               <field name="ciudad" />
               <field name="acudiente" />
             </group>
@@ -70,17 +69,16 @@
 
     <!-- Top menu item -->
 
-    <menuitem name="student" id="student.menu_root"/>
+    <menuitem name="Estudiantes" id="student.menu_root"/>
 
     <!-- menu categories -->
 
-    <menuitem name="Menu 1" id="student.menu_1" parent="student.menu_root"/>
+    <menuitem name="Estudiantes" id="student.student" parent="student.menu_root"/>
 
 
     <!-- actions -->
 
-    <menuitem name="List" id="student.menu_1_list" parent="student.menu_1" action="student.action_window"/>
-
+    <menuitem name="Estudiante" id="student.menu_student" parent="student.student" action="student.action_window"/>
 
   </data>
 </odoo>
