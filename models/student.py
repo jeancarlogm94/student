@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields
+from odoo import models, fields, api
 
 
 class Student (models.Model):
     _name = "student.student"
     _descrpiption = "Datos del Estudiante"
 
+    codigo = fields.Char(copy=False, default='New', readonly=True)
     nombre = fields.Char(string='Nombre')
     primer_apellido = fields.Char(string='Primer Apellido')
     segundo_apellido = fields.Char(string='Segundo Apellido', )
@@ -16,5 +17,13 @@ class Student (models.Model):
     fecha_nacimiento = fields.Date(string="Fecha de Nacimiento")
     hobby = fields.Char(string="Hobby")
     direccion = fields.Char(string="Dirección")
-    ciudad = fields.Many2one('res.city', string='Ciudad')
+    nacionalidad = fields.Many2one('res.country', string='Nacionalidad')
     acudiente = fields.Char(string='Acudiente')
+
+    @api.model
+    def create(self, vals):
+        if vals.get('codigo', 'New') == 'New':
+            vals['codigo'] = self.env['ir.sequence'] or 'New'
+
+        result = super(Student, self).create(vals)
+        return result

@@ -1,6 +1,14 @@
 <odoo>
   <data>
-    <record model="ir.ui.view" id="student_student_tree">
+    <record model="ir.sequence" id="sequence_student">
+      <field name="name">Codigo Estudiante</field>
+      <field name="code"></field>
+      <field name="active">TRUE</field>
+      <field name="number_next">1</field>
+      <field name="number_increment">1</field>
+    </record>
+
+    <record model="ir.ui.view" id="view_student_tree">
       <field name="name">student.student.tree</field>
       <field name="model">student.student</field>
       <field name="arch" type="xml">
@@ -13,17 +21,17 @@
           <field name="fecha_nacimiento" />
           <field name="hobby" />
           <field name="direccion" />
-          <field name="ciudad" />
+          <field name="nacionalidad" />
           <field name="acudiente" />
         </tree>
       </field>
     </record>
 
-    <record model="ir.ui.view" id="student_student_form">
+    <record model="ir.ui.view" id="view_student_form">
       <field name="name">student.student.form</field>
       <field name="model">student.student</field>
       <field name="arch" type="xml">
-        <form string="Form">
+        <form string="Datos del Estudiante">
           <sheet>
             <group>
               <field name="nombre" />
@@ -34,7 +42,7 @@
               <field name="fecha_nacimiento" />
               <field name="hobby" />
               <field name="direccion" />
-              <field name="ciudad" />
+              <field name="nacionalidad" />
               <field name="acudiente" />
             </group>
           </sheet>
@@ -42,25 +50,17 @@
       </field>
     </record>
 
-    <!-- actions opening views on models -->
-
-    <record model="ir.actions.act_window" id="student.action_window">
+    <record model="ir.actions.act_window" id="action_view_student">
       <field name="name">Estudiantes</field>
       <field name="res_model">student.student</field>
       <field name="view_mode">tree,form</field>
     </record>
 
-    <!-- Top menu item -->
-
-    <menuitem name="Estudiantes" id="student.menu"/>
-
-    <!-- menu categories -->
+    <menuitem name="Escuela" id="student.menu"/>
 
     <menuitem name="Estudiantes" id="student.student_parent" parent="student.menu"/>
 
-    <!-- actions -->
-
-    <menuitem name="Estudiante" id="student.menu_student" parent="student.student_parent" action="student.action_window"/>
+    <menuitem name="Estudiante" id="student.menu_student" parent="student.student_parent" action="action_view_student"/>
 
   </data>
 </odoo>
