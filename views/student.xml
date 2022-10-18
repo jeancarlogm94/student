@@ -1,5 +1,13 @@
 <odoo>
   <data>
+    <record id="codigo" model="ir.sequence">
+      <field name="name">Codigo Estudiante</field>
+      <field name="code">student.student.id</field>
+      <field name="prefix">Cod: </field>
+      <field name="number_next">1</field>
+      <field name="number_increment">1</field>
+    </record>
+
     <record model="ir.ui.view" id="view_student_tree">
       <field name="name">student.student.tree</field>
       <field name="model">student.student</field>
@@ -42,13 +50,6 @@
           </sheet>
         </form>
       </field>
-    </record>
-
-    <record id="codigo" model="ir.sequence">
-      <field name="name">Codigo Estudiante</field>
-      <field name="prefix">Cod: </field>
-      <field name="number_next">1</field>
-      <field name="number_increment">1</field>
     </record>
 
     <record model="ir.actions.act_window" id="action_view_student">
