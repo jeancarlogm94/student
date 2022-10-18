@@ -1,18 +1,11 @@
 <odoo>
   <data>
-    <record model="ir.sequence" id="sequence_student">
-      <field name="name">Codigo Estudiante</field>
-      <field name="code"></field>
-      <field name="active">TRUE</field>
-      <field name="number_next">1</field>
-      <field name="number_increment">1</field>
-    </record>
-
     <record model="ir.ui.view" id="view_student_tree">
       <field name="name">student.student.tree</field>
       <field name="model">student.student</field>
       <field name="arch" type="xml">
         <tree>
+          <field name="codigo" />
           <field name="nombre" />
           <field name="primer_apellido" />
           <field name="segundo_apellido" />
@@ -34,6 +27,7 @@
         <form string="Datos del Estudiante">
           <sheet>
             <group>
+              <field name="codigo" />
               <field name="nombre" />
               <field name="primer_apellido" />
               <field name="segundo_apellido" />
@@ -48,6 +42,13 @@
           </sheet>
         </form>
       </field>
+    </record>
+
+    <record id="codigo" model="ir.sequence">
+      <field name="name">Codigo Estudiante</field>
+      <field name="prefix">Cod: </field>
+      <field name="number_next">1</field>
+      <field name="number_increment">1</field>
     </record>
 
     <record model="ir.actions.act_window" id="action_view_student">
