@@ -1,7 +1,7 @@
 <odoo>
   <data>
-    <record model="ir.ui.view" id="student_tree">
-      <field name="name">student tree</field>
+    <record model="ir.ui.view" id="student_student_tree">
+      <field name="name">student.student.tree</field>
       <field name="model">student.student</field>
       <field name="arch" type="xml">
         <tree>
@@ -19,11 +19,11 @@
       </field>
     </record>
 
-    <record model="ir.ui.view" id="student_form">
-      <field name="name">student form</field>
+    <record model="ir.ui.view" id="student_student_form">
+      <field name="name">student.student.form</field>
       <field name="model">student.student</field>
       <field name="arch" type="xml">
-        <form string="student">
+        <form string="Form">
           <sheet>
             <group>
               <field name="nombre" />
@@ -50,35 +50,17 @@
       <field name="view_mode">tree,form</field>
     </record>
 
-
-    <!-- server action to the one above -->
-
-    <!-- <record model="ir.actions.server" id="student.action_server">
-      <field name="name">student server</field>
-      <field name="model_id" ref="model_student_student"/>
-      <field name="state">code</field>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": model._name,
-        }
-      </field>
-    </record> -->
-
-
     <!-- Top menu item -->
 
-    <menuitem name="Estudiantes" id="student.menu_root"/>
+    <menuitem name="Estudiantes" id="student.menu"/>
 
     <!-- menu categories -->
 
-    <menuitem name="Estudiantes" id="student.student" parent="student.menu_root"/>
-
+    <menuitem name="Estudiantes" id="student.student_parent" parent="student.menu"/>
 
     <!-- actions -->
 
-    <menuitem name="Estudiante" id="student.menu_student" parent="student.student" action="student.action_window"/>
+    <menuitem name="Estudiante" id="student.menu_student" parent="student.student_parent" action="student.action_window"/>
 
   </data>
 </odoo>

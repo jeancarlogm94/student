@@ -3,8 +3,10 @@
 from odoo import models, fields
 
 
-class Student(models.Model):
+class Student (models.Model):
     _name = "student.student"
+    _descrpiption = "Datos del Estudiante"
+
     nombre = fields.Char(string='Nombre')
     primer_apellido = fields.Char(string='Primer Apellido')
     segundo_apellido = fields.Char(string='Segundo Apellido', )
